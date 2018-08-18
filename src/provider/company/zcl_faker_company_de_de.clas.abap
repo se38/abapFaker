@@ -24,36 +24,38 @@
 * SOFTWARE.
 ********************************************************************************
 
-CLASS zcl_faker_generator DEFINITION
+CLASS zcl_faker_company_de_de DEFINITION
   PUBLIC
+  INHERITING FROM zcl_faker_provider_company
   FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.
-    CONSTANTS __locale_default TYPE string VALUE 'DEFAULT'.
+    METHODS constructor
+      IMPORTING i_faker TYPE REF TO zcl_faker.
 
-    CLASS-METHODS create
-      IMPORTING i_type          TYPE string
-                i_locale        TYPE string
-                i_faker         TYPE REF TO zcl_faker
-      RETURNING VALUE(r_result) TYPE REF TO zcl_faker_provider.
-
+  PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS zcl_faker_generator IMPLEMENTATION.
-  METHOD create.
-    DATA(class_name) = |ZCL_FAKER_{ i_type }_{ i_locale CASE = UPPER }|.
+CLASS zcl_faker_company_de_de IMPLEMENTATION.
+  METHOD constructor.
 
-    TRY.
-        CREATE OBJECT r_result TYPE (class_name)
-          EXPORTING i_faker = i_faker.
-      CATCH cx_sy_create_object_error.
-        class_name = |ZCL_FAKER_{ i_type }_{ __locale_default CASE = UPPER }|.
-        CREATE OBJECT r_result TYPE (class_name)
-          EXPORTING i_faker = i_faker.
-    ENDTRY.
+    super->constructor( i_faker ).
+
+    _formats = VALUE #(
+        ( `{{person-last_name}} {{company-company_suffix}}` )
+        ( `{{person-last_name}}-{{person-last_name}} {{company-company_suffix}}` )
+    ).
+
+    _company_suffixes = VALUE #(
+        ( |AG| ) ( |AG| ) ( |AG| ) ( |AG| ) ( |AG & Co. KG| ) ( |AG & Co. KGaA| ) ( |AG & Co. OHG| )
+        ( |GbR| ) ( |GbR| ) ( |GmbH| ) ( |GmbH| ) ( |GmbH| ) ( |GmbH| ) ( |GmbH & Co. KG| )
+        ( |GmbH & Co. KG| ) ( |GmbH & Co. KGaA| ) ( |GmbH & Co. OHG| ) ( |KG| ) ( |KG| ) ( |KG| )
+        ( |KGaA| ) ( |OHG mbH| ) ( |Stiftung & Co. KG| ) ( |Stiftung & Co. KGaA| ) ( |e.G.| )
+        ( |e.V.| )
+    ).
 
   ENDMETHOD.
 

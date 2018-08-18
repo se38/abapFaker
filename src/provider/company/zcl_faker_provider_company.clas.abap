@@ -24,83 +24,84 @@
 * SOFTWARE.
 ********************************************************************************
 
-CLASS zcl_faker_provider_address DEFINITION
+CLASS zcl_faker_provider_company DEFINITION
   PUBLIC
   INHERITING FROM zcl_faker_provider
   ABSTRACT .
 
   PUBLIC SECTION.
-    METHODS street_name
+    METHODS company_name
       RETURNING VALUE(r_result) TYPE string.
-    METHODS street_suffix_long
+    METHODS company_frame
       RETURNING VALUE(r_result) TYPE string.
-    METHODS street_suffix_short
+    METHODS company_suffix
       RETURNING VALUE(r_result) TYPE string.
-    METHODS post_code
+    METHODS catch_phrase_words_part_1
       RETURNING VALUE(r_result) TYPE string.
-    METHODS building_number
+    METHODS catch_phrase_words_part_2
       RETURNING VALUE(r_result) TYPE string.
-    METHODS city_prefix
+    METHODS catch_phrase_words_part_3
       RETURNING VALUE(r_result) TYPE string.
-    METHODS city_suffix
+    METHODS bs_words_part_1
       RETURNING VALUE(r_result) TYPE string.
-    METHODS city_name
+    METHODS bs_words_part_2
       RETURNING VALUE(r_result) TYPE string.
-    METHODS city
+    METHODS bs_words_part_3
       RETURNING VALUE(r_result) TYPE string.
 
   PROTECTED SECTION.
-    DATA _street_formats TYPE string_table.
-    DATA _street_suffixes_long TYPE string_table.
-    DATA _street_suffixes_short TYPE string_table.
-    DATA _building_number_formats TYPE string_table.
-    DATA _postcode_formats TYPE string_table.
-    DATA _city_prefixes TYPE string_table.
-    DATA _city_suffixes TYPE string_table.
-    DATA _city_names TYPE string_table.
-    DATA _city_formats TYPE string_table.
+    DATA _formats TYPE string_table.
+    data _frame_formats TYPE string_table.
+    DATA _company_suffixes TYPE string_table.
+    DATA _catch_phrase_words_part_1 TYPE string_table.
+    DATA _catch_phrase_words_part_2 TYPE string_table.
+    DATA _catch_phrase_words_part_3 TYPE string_table.
+    DATA _bs_words_part_1 TYPE string_table.
+    DATA _bs_words_part_2 TYPE string_table.
+    DATA _bs_words_part_3 TYPE string_table.
+
 
   PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS zcl_faker_provider_address IMPLEMENTATION.
+CLASS zcl_faker_provider_company IMPLEMENTATION.
 
-  METHOD street_name.
-    r_result = formatter( _street_formats[ random( lines( _street_formats ) ) ] ).
+  METHOD company_name.
+    r_result = formatter( _formats[ random( lines( _formats ) ) ] ).
   ENDMETHOD.
 
-  METHOD street_suffix_long.
-    r_result = _street_suffixes_long[ random( lines( _street_suffixes_long ) ) ].
+  METHOD bs_words_part_1.
+    r_result = _bs_words_part_1[ random( lines( _bs_words_part_1 ) ) ].
   ENDMETHOD.
 
-  METHOD street_suffix_short.
-    r_result = _street_suffixes_short[ random( lines( _street_suffixes_short ) ) ].
+  METHOD bs_words_part_2.
+    r_result = _bs_words_part_2[ random( lines( _bs_words_part_2 ) ) ].
   ENDMETHOD.
 
-  METHOD post_code.
-    r_result = numerify( _postcode_formats[ random( lines( _postcode_formats ) ) ] ).
+  METHOD bs_words_part_3.
+    r_result = _bs_words_part_3[ random( lines( _bs_words_part_3 ) ) ].
   ENDMETHOD.
 
-  METHOD building_number.
-    r_result = numerify( _building_number_formats[ random( lines( _building_number_formats ) ) ] ).
+  METHOD catch_phrase_words_part_1.
+    r_result = _catch_phrase_words_part_1[ random( lines( _catch_phrase_words_part_1 ) ) ].
   ENDMETHOD.
 
-  METHOD city_prefix.
-    r_result = _city_prefixes[ random( lines( _city_prefixes ) ) ].
+  METHOD catch_phrase_words_part_2.
+    r_result = _catch_phrase_words_part_2[ random( lines( _catch_phrase_words_part_2 ) ) ].
   ENDMETHOD.
 
-  METHOD city_suffix.
-    r_result = _city_suffixes[ random( lines( _city_suffixes ) ) ].
+  METHOD catch_phrase_words_part_3.
+    r_result = _catch_phrase_words_part_3[ random( lines( _catch_phrase_words_part_3 ) ) ].
   ENDMETHOD.
 
-  METHOD city_name.
-    r_result = _city_names[ random( lines( _city_names ) ) ].
+  METHOD company_suffix.
+    r_result = _company_suffixes[ random( lines( _company_suffixes ) ) ].
   ENDMETHOD.
 
-  METHOD city.
-    r_result = formatter( _city_formats[ random( lines( _city_formats ) ) ] ).
+  METHOD company_frame.
+    r_result = formatter( _frame_formats[ random( lines( _frame_formats ) ) ] ).
   ENDMETHOD.
 
 ENDCLASS.
