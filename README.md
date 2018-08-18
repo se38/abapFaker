@@ -1,5 +1,5 @@
 # abapFaker
-ABAP Faker: generate fake test data
+ABAP Faker: generates fake test data
 
 Design inspired by https://github.com/joke2k/faker
 
