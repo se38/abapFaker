@@ -13,7 +13,9 @@ ENDCLASS.
 
 
 
-CLASS zcl_faker_person_de_de IMPLEMENTATION.
+CLASS ZCL_FAKER_PERSON_DE_DE IMPLEMENTATION.
+
+
   METHOD constructor.
 
     super->constructor( i_faker ).
@@ -398,10 +400,9 @@ CLASS zcl_faker_person_de_de IMPLEMENTATION.
         |Walter| ) ( |Warmer| ) ( |Weihmann| ) ( |Weimer| ) ( |Weinhage| ) ( |Weinhold| ) (
         |Weiß| ) ( |Weitzel| ) ( |Weller| ) ( |Wende| ) ( |Wernecke| ) ( |Werner| ) ( |Wesack| ) (
         |Wiek| ) ( |Wieloch| ) ( |Wilms| ) ( |Wilmsen| ) ( |Winkler| ) ( |Wirth| ) ( |Wohlgemut| ) (
-        |Wulf| ) ( |Wulff| ) ( |Zahn| ) ( |Zänker| ) ( |Ziegert| ) ( |Zimmer| ) ( |Zirme| ) (
-        |Zobel| ) ( |Zorbach| )
+        |Wolf| ) ( |Wolff| ) ( |Wulf| ) ( |Wulff| ) ( |Zahn| ) ( |Zänker| ) ( |Ziegert| ) (
+        |Zimmer| ) ( |Zirme| ) ( |Zobel| ) ( |Zorbach| )
     ).
 
   ENDMETHOD.
-
 ENDCLASS.
