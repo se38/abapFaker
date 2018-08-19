@@ -54,9 +54,9 @@ CLASS zcl_faker_address_default IMPLEMENTATION.
     ).
 
     _building_number_formats = VALUE #(
-      ( |###| )
-      ( |##| )
-      ( |#| )
+      ( |%##| )
+      ( |%#| )
+      ( |%| )
     ).
 
     _city_names = VALUE #(

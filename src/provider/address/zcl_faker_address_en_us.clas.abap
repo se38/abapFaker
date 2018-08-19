@@ -284,9 +284,9 @@ CLASS zcl_faker_address_en_us IMPLEMENTATION.
     ).
 
     _building_number_formats = VALUE #(
-      ( |#####| )
-      ( |####| )
-      ( |###| )
+      ( |%####| )
+      ( |%###| )
+      ( |%##| )
     ).
 
     _city_prefixes = VALUE #(

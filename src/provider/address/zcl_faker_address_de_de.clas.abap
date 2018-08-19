@@ -74,9 +74,9 @@ CLASS zcl_faker_address_de_de IMPLEMENTATION.
     ).
 
     _building_number_formats = VALUE #(
-      ( |###| )
-      ( |##| )
-      ( |#| )
+      ( |%##| )
+      ( |%#| )
+      ( |%| )
     ).
 
     _city_names = VALUE #(
