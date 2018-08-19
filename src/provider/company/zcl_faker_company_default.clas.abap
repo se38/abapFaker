@@ -48,10 +48,10 @@ CLASS zcl_faker_company_default IMPLEMENTATION.
         ( `{{person-last_name}} {{company-company_suffix}}` )
         ( `{{person-last_name}}-{{person-last_name}} {{company-company_suffix}}` )
         ( `{{person-last_name}}, {{person-last_name}} and {{person-last_name}} {{company-company_suffix}}` )
-        ( `{{person-last_name}} {{company-company_suffix}} | {{company-company_frame}}` )
+        ( `{{person-last_name}} {{company-company_suffix}} | {{company-company_claim}}` )
     ).
 
-    _frame_formats = VALUE #(
+    _claim_formats = VALUE #(
         ( `{{company-catch_phrase_words_part_1}} {{company-catch_phrase_words_part_2}} {{company-catch_phrase_words_part_3}}` )
         ( `{{company-bs_words_part_1}} {{company-bs_words_part_2}} {{company-bs_words_part_3}}` )
     ).

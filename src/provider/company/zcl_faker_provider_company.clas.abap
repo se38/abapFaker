@@ -32,7 +32,7 @@ CLASS zcl_faker_provider_company DEFINITION
   PUBLIC SECTION.
     METHODS company_name
       RETURNING VALUE(r_result) TYPE string.
-    METHODS company_frame
+    METHODS company_claim
       RETURNING VALUE(r_result) TYPE string.
     METHODS company_suffix
       RETURNING VALUE(r_result) TYPE string.
@@ -51,7 +51,7 @@ CLASS zcl_faker_provider_company DEFINITION
 
   PROTECTED SECTION.
     DATA _formats TYPE string_table.
-    data _frame_formats TYPE string_table.
+    data _claim_formats TYPE string_table.
     DATA _company_suffixes TYPE string_table.
     DATA _catch_phrase_words_part_1 TYPE string_table.
     DATA _catch_phrase_words_part_2 TYPE string_table.
@@ -100,8 +100,8 @@ CLASS zcl_faker_provider_company IMPLEMENTATION.
     r_result = _company_suffixes[ random( lines( _company_suffixes ) ) ].
   ENDMETHOD.
 
-  METHOD company_frame.
-    r_result = formatter( _frame_formats[ random( lines( _frame_formats ) ) ] ).
+  METHOD company_claim.
+    r_result = formatter( _claim_formats[ random( lines( _claim_formats ) ) ] ).
   ENDMETHOD.
 
 ENDCLASS.
