@@ -45,9 +45,13 @@ CLASS zcl_faker_address_en_us IMPLEMENTATION.
 
     super->constructor( i_faker ).
 
-    _street_formats = VALUE #(
+    _street_name_formats = VALUE #(
       ( `{{person-first_name}} {{address-street_suffix_long}}` )
       ( `{{person-last_name}} {{address-street_suffix_long}}` )
+    ).
+
+    _street_address_formats = VALUE #(
+      ( `{{address-building_number}} {{address-street_name}}` )
     ).
 
     _street_suffixes_long = VALUE #(
@@ -327,6 +331,10 @@ CLASS zcl_faker_address_en_us IMPLEMENTATION.
         ( `{{address-city_prefix}} {{person-first_name}}` )
         ( `{{person-first_name}}{{address-city_suffix}}` )
         ( `{{person-last_name}}{{address-city_suffix}}` )
+    ).
+
+    _city_address_formats = VALUE #(
+        ( `{{address-city}} {{address-postcode}}` )
     ).
 
   ENDMETHOD.

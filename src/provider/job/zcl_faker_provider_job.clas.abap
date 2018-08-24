@@ -1,5 +1,4 @@
 * See https://github.com/se38/abapFaker
-
 ********************************************************************************
 * The MIT License (MIT)
 *
@@ -24,56 +23,27 @@
 * SOFTWARE.
 ********************************************************************************
 
-CLASS zcl_faker_address_default DEFINITION
+CLASS zcl_faker_provider_job DEFINITION
   PUBLIC
-  INHERITING FROM zcl_faker_provider_address
-  FINAL
-  CREATE PUBLIC .
+  INHERITING FROM zcl_faker_provider
+  ABSTRACT .
 
   PUBLIC SECTION.
-    METHODS constructor
-      IMPORTING i_faker TYPE REF TO zcl_faker.
+    METHODS job_title
+      RETURNING VALUE(r_result) TYPE string.
+
+  PROTECTED SECTION.
+    DATA _job_titles TYPE string_table.
 
   PRIVATE SECTION.
 ENDCLASS.
 
 
 
-CLASS zcl_faker_address_default IMPLEMENTATION.
+CLASS zcl_faker_provider_job IMPLEMENTATION.
 
-  METHOD constructor.
-
-    super->constructor( i_faker ).
-
-    _street_name_formats = VALUE #(
-      ( `{{person-first_name}}-{{person-last_name}}-Street` )
-    ).
-
-    _street_address_formats = VALUE #(
-      ( `{{address-building_number}} {{address-street_name}}` )
-    ).
-
-    _postcode_formats = VALUE #(
-      ( |#####| )
-    ).
-
-    _building_number_formats = VALUE #(
-      ( |%##| )
-      ( |%#| )
-      ( |%| )
-    ).
-
-    _city_names = VALUE #(
-        ( |Ducktown| )     ).
-
-    _city_formats = VALUE #(
-        ( `{{address-city_name}}` )
-    ).
-
-    _city_address_formats = VALUE #(
-        ( `{{address-postcode}} {{address-city}}` )
-    ).
-
+  METHOD job_title.
+    r_result = _job_titles[ random( lines( _job_titles ) ) ].
   ENDMETHOD.
 
 ENDCLASS.

@@ -1,5 +1,4 @@
 * See https://github.com/se38/abapFaker
-
 ********************************************************************************
 * The MIT License (MIT)
 *
@@ -24,9 +23,9 @@
 * SOFTWARE.
 ********************************************************************************
 
-CLASS zcl_faker_address_default DEFINITION
+CLASS zcl_faker_job_default DEFINITION
   PUBLIC
-  INHERITING FROM zcl_faker_provider_address
+  INHERITING FROM zcl_faker_provider_job
   FINAL
   CREATE PUBLIC .
 
@@ -39,39 +38,15 @@ ENDCLASS.
 
 
 
-CLASS zcl_faker_address_default IMPLEMENTATION.
-
+CLASS zcl_faker_job_default IMPLEMENTATION.
   METHOD constructor.
 
     super->constructor( i_faker ).
 
-    _street_name_formats = VALUE #(
-      ( `{{person-first_name}}-{{person-last_name}}-Street` )
-    ).
-
-    _street_address_formats = VALUE #(
-      ( `{{address-building_number}} {{address-street_name}}` )
-    ).
-
-    _postcode_formats = VALUE #(
-      ( |#####| )
-    ).
-
-    _building_number_formats = VALUE #(
-      ( |%##| )
-      ( |%#| )
-      ( |%| )
-    ).
-
-    _city_names = VALUE #(
-        ( |Ducktown| )     ).
-
-    _city_formats = VALUE #(
-        ( `{{address-city_name}}` )
-    ).
-
-    _city_address_formats = VALUE #(
-        ( `{{address-postcode}} {{address-city}}` )
+    _job_titles = VALUE #(
+      ( |Developer| )
+      ( |Engineer| )
+      ( |Administrator| )
     ).
 
   ENDMETHOD.

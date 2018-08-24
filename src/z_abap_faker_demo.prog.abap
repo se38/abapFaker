@@ -45,10 +45,12 @@ CLASS app IMPLEMENTATION.
     DO 10 TIMES.
       cl_demo_output=>write(
         |{ faker->person->first_name( ) } { faker->person->last_name( ) }\n| &&
-        |{ faker->address->street_name( ) } { faker->address->building_number( ) }\n| &&
-        |{ faker->address->post_code( ) } { faker->address->city( ) }\n| &&
+        |{ faker->address->street_address( ) }\n| &&
+        |{ faker->address->city_address( ) }\n\n| &&
         |Phone { faker->phone->number( ) }\n| &&
-        |{ faker->company->company_name( ) }|
+        |{ faker->company->company_name( ) }\n| &&
+        |{ faker->job->job_title( ) }\n| &&
+        |{ sy-uline }|
       ).
     ENDDO.
 
