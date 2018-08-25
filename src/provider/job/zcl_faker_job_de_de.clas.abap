@@ -25,7 +25,7 @@
 
 CLASS zcl_faker_job_de_de DEFINITION
   PUBLIC
-  INHERITING FROM zcl_faker_provider_job
+  INHERITING FROM zcl_faker_job_default
   FINAL
   CREATE PUBLIC .
 
@@ -84,7 +84,6 @@ CLASS zcl_faker_job_de_de IMPLEMENTATION.
 ( |Sozialversicherungsfachangestellter| )
 ( |Steuerfachangestellter| )
 ( |Verwaltungsfachangestellter| )
-( |Beamtenausbildung: siehe unter Beamtenanwärter| )
 ( |Kaufmännische Verkehrsberufe| )
 ( |Fachkraft für Kurier-, Express- und Postdienstleistungen| )
 ( |Fachkraft für Möbel-, Küchen- und Umzugsservice| )

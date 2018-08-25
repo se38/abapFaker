@@ -25,7 +25,7 @@
 
 CLASS zcl_faker_job_en_us DEFINITION
   PUBLIC
-  INHERITING FROM zcl_faker_provider_job
+  INHERITING FROM zcl_faker_job_default
   FINAL
   CREATE PUBLIC .
 

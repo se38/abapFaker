@@ -26,7 +26,7 @@
 
 CLASS zcl_faker_person_en_us DEFINITION
   PUBLIC
-  INHERITING FROM zcl_faker_provider_person
+  INHERITING FROM zcl_faker_person_default
   FINAL
   CREATE PUBLIC .
 

@@ -26,7 +26,7 @@
 
 CLASS zcl_faker_address_de_de DEFINITION
   PUBLIC
-  INHERITING FROM zcl_faker_provider_address
+  INHERITING FROM zcl_faker_address_default
   FINAL
   CREATE PUBLIC .
 
@@ -71,16 +71,6 @@ CLASS zcl_faker_address_de_de IMPLEMENTATION.
       ( |str.| )
       ( |weg| )
       ( |allee| )
-    ).
-
-    _postcode_formats = VALUE #(
-      ( |#####| )
-    ).
-
-    _building_number_formats = VALUE #(
-      ( |%##| )
-      ( |%#| )
-      ( |%| )
     ).
 
     _city_names = VALUE #(
@@ -162,14 +152,6 @@ CLASS zcl_faker_address_de_de IMPLEMENTATION.
         ( |Witzenhausen| ) ( |Wolfach| ) ( |Wolfenbüttel| ) ( |Wolfratshausen| ) ( |Wolgast| )
         ( |Wolmirstedt| ) ( |Worbis| ) ( |Wunsiedel| ) ( |Wurzen| ) ( |Zerbst| ) ( |Zeulenroda| )
         ( |Zossen| ) ( |Zschopau| )
-    ).
-
-    _city_formats = VALUE #(
-        ( `{{address-city_name}}` )
-    ).
-
-    _city_address_formats = VALUE #(
-        ( `{{address-postcode}} {{address-city}}` )
     ).
 
   ENDMETHOD.

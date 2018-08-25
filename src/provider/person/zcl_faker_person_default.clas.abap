@@ -1,5 +1,4 @@
 * See https://github.com/se38/abapFaker
-
 ********************************************************************************
 * The MIT License (MIT)
 *
@@ -27,7 +26,6 @@
 CLASS zcl_faker_person_default DEFINITION
   PUBLIC
   INHERITING FROM zcl_faker_provider_person
-  FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.

@@ -27,7 +27,6 @@
 CLASS zcl_faker_phone_default DEFINITION
   PUBLIC
   INHERITING FROM zcl_faker_provider_phone
-  FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.

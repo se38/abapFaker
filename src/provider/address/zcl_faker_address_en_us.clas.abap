@@ -26,7 +26,7 @@
 
 CLASS zcl_faker_address_en_us DEFINITION
   PUBLIC
-  INHERITING FROM zcl_faker_provider_address
+  INHERITING FROM zcl_faker_address_default
   FINAL
   CREATE PUBLIC .
 
@@ -48,10 +48,6 @@ CLASS zcl_faker_address_en_us IMPLEMENTATION.
     _street_name_formats = VALUE #(
       ( `{{person-first_name}} {{address-street_suffix_long}}` )
       ( `{{person-last_name}} {{address-street_suffix_long}}` )
-    ).
-
-    _street_address_formats = VALUE #(
-      ( `{{address-building_number}} {{address-street_name}}` )
     ).
 
     _street_suffixes_long = VALUE #(

@@ -26,7 +26,6 @@
 CLASS zcl_faker_job_default DEFINITION
   PUBLIC
   INHERITING FROM zcl_faker_provider_job
-  FINAL
   CREATE PUBLIC .
 
   PUBLIC SECTION.

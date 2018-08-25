@@ -1,5 +1,4 @@
 * See https://github.com/se38/abapFaker
-
 ********************************************************************************
 * The MIT License (MIT)
 *
@@ -26,7 +25,7 @@
 
 CLASS zcl_faker_phone_de_de DEFINITION
   PUBLIC
-  INHERITING FROM zcl_faker_provider_phone
+  INHERITING FROM zcl_faker_phone_default
   FINAL
   CREATE PUBLIC .
 

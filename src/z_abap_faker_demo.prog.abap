@@ -40,7 +40,7 @@ CLASS app IMPLEMENTATION.
   METHOD main.
     DATA(faker) = NEW zcl_faker( 'en_US' ).
 *    DATA(faker) = NEW zcl_faker( 'en_xx' ).
-*    DATA(faker) = NEW zcl_faker( ).
+
 
     DO 10 TIMES.
       cl_demo_output=>write(
@@ -48,6 +48,20 @@ CLASS app IMPLEMENTATION.
         |{ faker->address->street_address( ) }\n| &&
         |{ faker->address->city_address( ) }\n\n| &&
         |Phone { faker->phone->number( ) }\n| &&
+        |{ faker->company->company_name( ) }\n| &&
+        |{ faker->job->job_title( ) }\n| &&
+        |{ sy-uline }|
+      ).
+    ENDDO.
+
+    faker = NEW zcl_faker( 'de_DE' ).
+
+    DO 10 TIMES.
+      cl_demo_output=>write(
+        |{ faker->person->first_name( ) } { faker->person->last_name( ) }\n| &&
+        |{ faker->address->street_address( ) }\n| &&
+        |{ faker->address->city_address( ) }\n\n| &&
+        |Telefon { faker->phone->number( ) }\n| &&
         |{ faker->company->company_name( ) }\n| &&
         |{ faker->job->job_title( ) }\n| &&
         |{ sy-uline }|
