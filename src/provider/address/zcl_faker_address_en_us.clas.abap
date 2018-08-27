@@ -329,8 +329,15 @@ CLASS zcl_faker_address_en_us IMPLEMENTATION.
         ( `{{person-last_name}}{{address-city_suffix}}` )
     ).
 
+    _states_abbr = value #(
+        ( |AL| ) ( |AK| ) ( |AS| ) ( |AZ| ) ( |AR| ) ( |CA| ) ( |CO| ) ( |CT| ) ( |DE| ) ( |DC| ) ( |FM| ) ( |FL| )
+        ( |GA| ) ( |GU| ) ( |HI| ) ( |ID| ) ( |IL| ) ( |IN| ) ( |IA| ) ( |KS| ) ( |KY| ) ( |LA| ) ( |ME| ) ( |MH| )
+        ( |MD| ) ( |MA| ) ( |MI| ) ( |MN| ) ( |MS| ) ( |MO| ) ( |MT| ) ( |NE| ) ( |NV| ) ( |NH| ) ( |NJ| ) ( |NM| )
+        ( |NY| ) ( |NC| ) ( |ND| ) ( |MP| ) ( |OH| ) ( |OK| ) ( |OR| ) ( |PW| ) ( |PA| ) ( |PR| ) ( |RI| ) ( |SC| )
+        ( |SD| ) ( |TN| ) ( |TX| ) ( |UT| ) ( |VT| ) ( |VI| ) ( |VA| ) ( |WA| ) ( |WV| ) ( |WI| ) ( |WY| )
+    ).
     _city_address_formats = VALUE #(
-        ( `{{address-city}} {{address-postcode}}` )
+        ( `{{address-city}}, {{address-state_abbr}} {{address-postcode}}` )
     ).
 
   ENDMETHOD.

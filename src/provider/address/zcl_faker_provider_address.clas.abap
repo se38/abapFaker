@@ -51,6 +51,8 @@ CLASS zcl_faker_provider_address DEFINITION
       RETURNING VALUE(r_result) TYPE string.
     METHODS city_address
       RETURNING VALUE(r_result) TYPE string.
+    METHODS state_abbr
+      RETURNING VALUE(r_result) TYPE string.
 
   PROTECTED SECTION.
     DATA _street_name_formats TYPE string_table.
@@ -64,6 +66,7 @@ CLASS zcl_faker_provider_address DEFINITION
     DATA _city_names TYPE string_table.
     DATA _city_formats TYPE string_table.
     DATA _city_address_formats TYPE string_table.
+    DATA _states_abbr TYPE string_table.
 
   PRIVATE SECTION.
 ENDCLASS.
@@ -114,6 +117,10 @@ CLASS zcl_faker_provider_address IMPLEMENTATION.
 
   METHOD city_address.
     r_result = formatter( _city_address_formats[ random( lines( _city_address_formats ) ) ] ).
+  ENDMETHOD.
+
+  METHOD state_abbr.
+    r_result = _states_abbr[ random( lines( _states_abbr ) ) ].
   ENDMETHOD.
 
 ENDCLASS.
