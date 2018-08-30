@@ -59,6 +59,11 @@ CLASS zcl_faker_provider DEFINITION
       IMPORTING i_text          TYPE string DEFAULT '###'
       RETURNING VALUE(r_result) TYPE string.
 
+    METHODS random_letter
+      IMPORTING i_upper         TYPE boolean DEFAULT abap_true
+                i_lower         TYPE boolean DEFAULT abap_false
+      RETURNING VALUE(r_result) TYPE char01.
+
   PRIVATE SECTION.
 
 
@@ -186,6 +191,25 @@ CLASS zcl_faker_provider IMPLEMENTATION.
 
       REPLACE REGEX '\{\{(\w+)-(\w+)\}\}' IN r_result WITH value.
     ENDDO.
+
+  ENDMETHOD.
+
+  METHOD random_letter.
+
+    DATA(offset) = random( strlen( sy-abcde ) ) - 1.
+    r_result = sy-abcde+offset(1).
+
+    IF  i_upper = abap_false
+    AND i_lower = abap_true.
+      "lower chars only
+      r_result = to_lower( r_result ).
+    ELSEIF i_upper = abap_true
+    AND i_lower = abap_true.
+      "random lower and upper chars
+      IF random( 2 ) = 2.
+        r_result = to_lower( r_result ).
+      ENDIF.
+    ENDIF.
 
   ENDMETHOD.
 

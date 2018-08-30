@@ -38,6 +38,8 @@ CLASS zcl_faker_provider_person DEFINITION
       RETURNING VALUE(r_result) TYPE string.
     METHODS last_name
       RETURNING VALUE(r_result) TYPE string.
+    METHODS initial
+      RETURNING VALUE(r_result) TYPE string.
     METHODS name
       RETURNING VALUE(r_result) TYPE string.
 
@@ -45,6 +47,7 @@ CLASS zcl_faker_provider_person DEFINITION
     DATA _first_names_male TYPE string_table.
     DATA _first_names_female TYPE string_table.
     DATA _last_names TYPE string_table.
+    DATA _name_formats TYPE string_table.
 
   PRIVATE SECTION.
 
@@ -56,7 +59,7 @@ ENDCLASS.
 CLASS zcl_faker_provider_person IMPLEMENTATION.
 
   METHOD name.
-    r_result = |{ first_name( ) } { last_name( ) }|.
+    r_result = formatter( _name_formats[ random( lines( _name_formats ) ) ] ).
   ENDMETHOD.
 
   METHOD first_name.
@@ -77,6 +80,10 @@ CLASS zcl_faker_provider_person IMPLEMENTATION.
 
   METHOD last_name.
     r_result = _last_names[ random( lines( _last_names ) ) ].
+  ENDMETHOD.
+
+  METHOD initial.
+    r_result = random_letter( ).
   ENDMETHOD.
 
 ENDCLASS.

@@ -1756,6 +1756,17 @@ CLASS zcl_faker_person_en_us IMPLEMENTATION.
         ( |Cooke| )
     ).
 
+    _name_formats = value #(
+      ( `{{person-first_name}} {{person-last_name}}` )
+      ( `{{person-first_name}} {{person-last_name}}` )
+      ( `{{person-first_name}} {{person-initial}}. {{person-last_name}}` )
+      ( `{{person-first_name}} {{person-initial}}. {{person-last_name}}` )
+      ( `{{person-first_name}} {{person-initial}}. {{person-last_name}}` )
+      ( `{{person-first_name}} {{person-initial}}. {{person-last_name}}` )
+      ( `{{person-first_name}} {{person-initial}}. {{person-last_name}}` )
+      ( `{{person-initial}}.{{person-initial}}. {{person-last_name}}` )
+    ).
+
   ENDMETHOD.
 
 ENDCLASS.

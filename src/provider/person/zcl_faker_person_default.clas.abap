@@ -55,6 +55,10 @@ CLASS zcl_faker_person_default IMPLEMENTATION.
       ( |Mouse| )
     ).
 
+    _name_formats = value #(
+      ( `{{person-first_name}} {{person-last_name}}` )
+    ).
+
   ENDMETHOD.
 
 ENDCLASS.

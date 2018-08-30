@@ -411,7 +411,7 @@ CLASS ZCL_FAKER_PERSON_DE_DE IMPLEMENTATION.
         |Rörricht| ) ( |Rose| ) ( |Rosemann| ) ( |Rosenow| ) ( |Roskoth| ) ( |Rudolph| ) (
         |Ruppersberger| ) ( |Ruppert| ) ( |Rust| ) ( |Sager| ) ( |Salz| ) ( |Säuberlich| ) (
         |Sauer| ) ( |Schaaf| ) ( |Schacht| ) ( |Schäfer| ) ( |Scheel| ) ( |Scheibe| ) ( |Schenk| ) (
-        |Scheuermann| ) ( |Schinke| ) ( |Schleich| ) ( |Schleich| ) ( |auch Schlauchin| ) (
+        |Scheuermann| ) ( |Schinke| ) ( |Schleich| ) ( |Schleich| ) ( |Schlauchin| ) (
         |Schlosser| ) ( |Schmidt| ) ( |Schmidtke| ) ( |Schmiedecke| ) ( |Schmiedt| ) (
         |Schönland| ) ( |Scholl| ) ( |Scholtz| ) ( |Scholz| ) ( |Schomber| ) ( |Schottin| ) (
         |Schuchhardt| ) ( |Schüler| ) ( |Schulz| ) ( |Schuster| ) ( |Schweitzer| ) (

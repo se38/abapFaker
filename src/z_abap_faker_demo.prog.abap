@@ -38,34 +38,27 @@ NEW app( )->main( ).
 CLASS app IMPLEMENTATION.
 
   METHOD main.
-    DATA(faker) = NEW zcl_faker( 'en_US' ).
-*    DATA(faker) = NEW zcl_faker( 'en_xx' ).
+    DO 2 TIMES.
 
+      IF sy-index = 1.
+        DATA(faker) = NEW zcl_faker( 'en_US' ).
+*        DATA(faker) = NEW zcl_faker( 'en_xx' ).
+      ELSE.
+        faker = NEW zcl_faker( 'de_DE' ).
+      ENDIF.
 
-    DO 10 TIMES.
-      cl_demo_output=>write(
-        |{ faker->person->first_name( ) } { faker->person->last_name( ) }\n| &&
-        |{ faker->address->street_address( ) }\n| &&
-        |{ faker->address->city_address( ) }\n\n| &&
-        |Phone { faker->phone->number( ) }\n| &&
-        |{ faker->company->company_name( ) }\n| &&
-        |{ faker->job->job_title( ) }\n| &&
-        |{ sy-uline }|
-      ).
-    ENDDO.
+      DO 10 TIMES.
+        cl_demo_output=>write(
+          |{ faker->person->name( ) }\n| &&
+          |{ faker->address->street_address( ) }\n| &&
+          |{ faker->address->city_address( ) }\n\n| &&
+          |Phone { faker->phone->number( ) }\n| &&
+          |{ faker->company->company_name( ) }\n| &&
+          |{ faker->job->job_title( ) }\n| &&
+          |{ sy-uline }|
+        ).
+      ENDDO.
 
-    faker = NEW zcl_faker( 'de_DE' ).
-
-    DO 10 TIMES.
-      cl_demo_output=>write(
-        |{ faker->person->first_name( ) } { faker->person->last_name( ) }\n| &&
-        |{ faker->address->street_address( ) }\n| &&
-        |{ faker->address->city_address( ) }\n\n| &&
-        |Telefon { faker->phone->number( ) }\n| &&
-        |{ faker->company->company_name( ) }\n| &&
-        |{ faker->job->job_title( ) }\n| &&
-        |{ sy-uline }|
-      ).
     ENDDO.
 
     cl_demo_output=>display( ).
