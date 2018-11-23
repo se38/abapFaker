@@ -1,5 +1,4 @@
 * See https://github.com/se38/abapFaker
-
 ********************************************************************************
 * The MIT License (MIT)
 *
@@ -24,45 +23,53 @@
 * SOFTWARE.
 ********************************************************************************
 
-REPORT z_abap_faker_demo.
-
-CLASS app DEFINITION CREATE PUBLIC.
+CLASS zcl_faker_phone_pt_br DEFINITION
+  PUBLIC
+  INHERITING FROM zcl_faker_phone_default
+  FINAL
+  CREATE PUBLIC .
 
   PUBLIC SECTION.
-    METHODS main.
+    METHODS constructor
+      IMPORTING i_faker TYPE REF TO zcl_faker.
 
+  PRIVATE SECTION.
 ENDCLASS.
 
-NEW app( )->main( ).
 
-CLASS app IMPLEMENTATION.
 
-  METHOD main.
-    DO 2 TIMES.
+CLASS zcl_faker_phone_pt_br IMPLEMENTATION.
+  METHOD constructor.
 
-      IF sy-index = 1.
-        DATA(faker) = NEW zcl_faker( 'en_US' ).
-*        DATA(faker) = NEW zcl_faker( 'en_xx' ).
-      ELSE.
-*        faker = NEW zcl_faker( 'de_DE' ).
-        faker = NEW zcl_faker( 'pt_BR' ).
-      ENDIF.
+    super->constructor( i_faker ).
 
-      DO 10 TIMES.
-        cl_demo_output=>write(
-          |{ faker->person->name( ) }\n| &&
-          |{ faker->address->street_address( ) }\n| &&
-          |{ faker->address->city_address( ) }\n\n| &&
-          |Phone { faker->phone->number( ) }\n| &&
-          |{ faker->company->company_name( ) }\n| &&
-          |{ faker->job->job_title( ) }\n| &&
-          |{ sy-uline }|
-        ).
-      ENDDO.
+    _formats = VALUE #(
+        ( |+##(#)##########| )
+        ( |+##(#)##########| )
+        ( |0##########| )
+        ( |0##########| )
+        ( |###-###-####| )
+        ( |(###)###-####| )
+        ( |1-###-###-####| )
+        ( |###.###.####| )
+        ( |###-###-####| )
+        ( |(###)###-####| )
+        ( |1-###-###-####| )
+        ( |###.###.####| )
+        ( |###-###-####x###| )
+        ( |(###)###-####x###| )
+        ( |1-###-###-####x###| )
+        ( |###.###.####x###| )
+        ( |###-###-####x####| )
+        ( |(###)###-####x####| )
+        ( |1-###-###-####x####| )
+        ( |###.###.####x####| )
+        ( |###-###-####x#####| )
+        ( |(###)###-####x#####| )
+        ( |1-###-###-####x#####| )
+        ( |###.###.####x#####| )
+    ).
 
-    ENDDO.
-
-    cl_demo_output=>display( ).
   ENDMETHOD.
 
 ENDCLASS.
