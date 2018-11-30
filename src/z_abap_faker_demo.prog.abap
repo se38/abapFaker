@@ -27,42 +27,26 @@
 REPORT z_abap_faker_demo.
 
 CLASS app DEFINITION CREATE PUBLIC.
-
   PUBLIC SECTION.
     METHODS main.
-
 ENDCLASS.
+
+PARAMETERS: lang TYPE zelang.
 
 NEW app( )->main( ).
 
 CLASS app IMPLEMENTATION.
-
   METHOD main.
-    DO 2 TIMES.
-
-*      IF sy-index = 1.
-      DATA(faker) = NEW zcl_faker( 'pt_BR' ).
-**        DATA(faker) = NEW zcl_faker( 'en_US' ).
-**        DATA(faker) = NEW zcl_faker( 'en_xx' ).
-*      ELSE.
-*        faker = NEW zcl_faker( 'de_DE' ).
-*      ENDIF.
-
-      DO 10 TIMES.
-        cl_demo_output=>write(
-          |{ faker->person->name( ) }\n| &&
-          |{ faker->address->street_address( ) }\n| &&
-          |{ faker->address->city_address( ) }\n\n| &&
-          |Phone { faker->phone->number( ) }\n| &&
-          |{ faker->company->company_name( ) }\n| &&
-          |{ faker->job->job_title( ) }\n| &&
-          |{ sy-uline }|
-        ).
-      ENDDO.
-
-    ENDDO.
-
-    cl_demo_output=>display( ).
+    cl_demo_output=>new( )->begin_section( |ABAP Faker|
+                         )->write( VALUE stringtab( LET faker = NEW zcl_faker( CONV #( lang ) ) in
+                                                    FOR I = 1 UNTIL i > 10
+                                                    ( |{ faker->person->name( ) }\n| &&
+                                                      |{ faker->address->street_address( ) }\n| &&
+                                                      |{ faker->address->city_address( ) }\n\n| &&
+                                                      |Phone { faker->phone->number( ) }\n| &&
+                                                      |{ faker->company->company_name( ) }\n| &&
+                                                      |{ faker->job->job_title( ) }\n| &&
+                                                      |{ sy-uline }| ) )
+                         )->display( ).
   ENDMETHOD.
-
 ENDCLASS.
