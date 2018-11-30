@@ -43,6 +43,49 @@ CLASS zcl_faker_company_pt_br IMPLEMENTATION.
 
     super->constructor( i_faker ).
 
+    _company_suffixes = VALUE #( ( |S/A| ) ( |S.A.| ) ( |Ltda.| ) ( |- ME| ) ( |- EI| ) ( |e Filhos| ) ).
+
+    _catch_phrase_words_part_1 = VALUE #(
+        ( |a segurança| )
+        ( |o prazer| )
+        ( |o conforto| )
+        ( |a simplicidade| )
+        ( |a certeza| )
+        ( |a arte| )
+        ( |o poder| )
+        ( |o direito| )
+        ( |a possibilidade| )
+        ( |a vantagem| )
+        ( |a liberdade| )
+    ).
+
+    _catch_phrase_words_part_2 = VALUE #(
+        ( |de conseguir| )
+        ( |de avançar| )
+        ( |de evoluir| )
+        ( |de mudar| )
+        ( |de inovar| )
+        ( |de ganhar| )
+        ( |de atingir seus objetivos| )
+        ( |de concretizar seus projetos| )
+        ( |de realizar seus sonhos | )
+    ).
+
+    _catch_phrase_words_part_3 = VALUE #(
+        ( |de maneira eficaz| )
+        ( |mais rapidamente| )
+        ( |mais facilmente| )
+        ( |simplesmente| )
+        ( |com toda a tranquilidade| )
+        ( |antes de tudo| )
+        ( |naturalmente| )
+        ( |sem preocupação| )
+        ( |em estado puro| )
+        ( |com força total| )
+        ( |direto da fonte| )
+        ( |com confiança| )
+    ).
+
   ENDMETHOD.
 
 ENDCLASS.

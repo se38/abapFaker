@@ -40,13 +40,13 @@ CLASS app IMPLEMENTATION.
   METHOD main.
     DO 2 TIMES.
 
-      IF sy-index = 1.
-        DATA(faker) = NEW zcl_faker( 'en_US' ).
-*        DATA(faker) = NEW zcl_faker( 'en_xx' ).
-      ELSE.
+*      IF sy-index = 1.
+      DATA(faker) = NEW zcl_faker( 'pt_BR' ).
+**        DATA(faker) = NEW zcl_faker( 'en_US' ).
+**        DATA(faker) = NEW zcl_faker( 'en_xx' ).
+*      ELSE.
 *        faker = NEW zcl_faker( 'de_DE' ).
-        faker = NEW zcl_faker( 'pt_BR' ).
-      ENDIF.
+*      ENDIF.
 
       DO 10 TIMES.
         cl_demo_output=>write(

@@ -44,78 +44,35 @@ CLASS zcl_faker_address_pt_br IMPLEMENTATION.
     super->constructor( i_faker ).
 
     _street_name_formats = VALUE #(
-      ( `{{person-first_name}} {{address-street_suffix_long}}` )
-      ( `{{person-last_name}} {{address-street_suffix_long}}` )
+      ( `{{address-street_suffix_long}} {{person-first_name}}` )
+      ( `{{address-street_suffix_long}} {{person-last_name}}` )
     ).
 
+    _street_address_formats = VALUE #(
+      ( `{{address-street_name}}, {{address-building_number}}` )
+    ).
+
+
     _street_suffixes_long = VALUE #(
-        ( |Alameda| )
-        ( |Avenida| )
-        ( |Beco| )
-        ( |Boulevard| )
-        ( |Caminho| )
-        ( |Cais| )
-        ( |Campo| )
-        ( |Escada| )
-        ( |Estrada| )
-        ( |Favela| )
-        ( |Fazenda| )
-        ( |Floresta| )
-        ( |Ilha| )
-        ( |Jardim| )
-        ( |Ladeira| )
-        ( |Largo| )
-        ( |Loteamento| )
-        ( |Lugar| )
-        ( |Morro| )
-        ( |Parque| )
-        ( |Passeio| )
-        ( |Praia| )
-        ( |Praça| )
-        ( |Recanto| )
-        ( |Rodovia| )
-        ( |Rua| )
-        ( |Servidao| )
-        ( |Travessa| )
-        ( |Via| )
-        ( |Vila| )
+        ( |Alameda| ) ( |Avenida|    ) ( |Beco|     ) ( |Boulevard| ) ( |Caminho| )
+        ( |Cais|    ) ( |Campo|      ) ( |Escada|   ) ( |Estrada|   ) ( |Favela|  )
+        ( |Fazenda| ) ( |Floresta|   ) ( |Ilha|     ) ( |Jardim|    ) ( |Ladeira| )
+        ( |Largo|   ) ( |Loteamento| ) ( |Lugar|    ) ( |Morro|     ) ( |Parque|  )
+        ( |Passeio| ) ( |Praia|      ) ( |Praça|    ) ( |Recanto|   ) ( |Rodovia| )
+        ( |Rua|     ) ( |Servidao|   ) ( |Travessa| ) ( |Via|       ) ( |Vila|    )
     ).
 
     _street_suffixes_short = VALUE #(
-        ( |Alm| )
-        ( |Avn| )
-        ( |Bec| )
-        ( |Blv| )
-        ( |Cam| )
-        ( |Cas| )
-        ( |Cmp| )
-        ( |Esc| )
-        ( |Etr| )
-        ( |Fav| )
-        ( |Faz| )
-        ( |Flt| )
-        ( |Ilh| )
-        ( |Jrd| )
-        ( |Lad| )
-        ( |Lrg| )
-        ( |Ltm| )
-        ( |Lug| )
-        ( |Mrr| )
-        ( |Pqe| )
-        ( |Pas| )
-        ( |Pra| )
-        ( |Prc| )
-        ( |Rec| )
-        ( |Rod| )
-        ( |R| )
-        ( |Srv| )
-        ( |Trv| )
-        ( |Via| )
-        ( |VIL| )
+        ( |Alm| ) ( |Avn| ) ( |Bec| ) ( |Blv| ) ( |Cam| )
+        ( |Cas| ) ( |Cmp| ) ( |Esc| ) ( |Etr| ) ( |Fav| )
+        ( |Faz| ) ( |Flt| ) ( |Ilh| ) ( |Jrd| ) ( |Lad| )
+        ( |Lrg| ) ( |Ltm| ) ( |Lug| ) ( |Mrr| ) ( |Pqe| )
+        ( |Pas| ) ( |Pra| ) ( |Prc| ) ( |Rec| ) ( |Rod| )
+        ( |R|   ) ( |Srv| ) ( |Trv| ) ( |Via| ) ( |Vil| )
     ).
 
     _postcode_formats = VALUE #(
-      (  |#####-####| )
+      (  |#####-###| )
     ).
 
     _building_number_formats = VALUE #(
@@ -124,23 +81,50 @@ CLASS zcl_faker_address_pt_br IMPLEMENTATION.
       ( |%##| )
     ).
 
-    _city_formats = value #(
-        ( `{{address-city_prefix}} {{person-first_name}}{{address-city_suffix}}` )
-        ( `{{person-first_name}}{{address-city_suffix}}` )
-        ( `{{address-city_prefix}} {{person-first_name}}` )
-        ( `{{person-first_name}}{{address-city_suffix}}` )
-        ( `{{person-last_name}}{{address-city_suffix}}` )
+    _city_names = VALUE #(
+        ( |Aracaju| )
+        ( |Belém| )
+        ( |Belo Horizonte| )
+        ( |Boa Vista| )
+        ( |Brasília| )
+        ( |Campo Grande| )
+        ( |Cuiabá| )
+        ( |Curitiba| )
+        ( |Florianópolis| )
+        ( |Fortaleza| )
+        ( |Goiânia| )
+        ( |João Pessoa| )
+        ( |Macapá| )
+        ( |Maceió| )
+        ( |Manaus| )
+        ( |Natal| )
+        ( |Palmas| )
+        ( |Porto Alegre| )
+        ( |Porto Velho| )
+        ( |Recife| )
+        ( |Rio Branco| )
+        ( |Rio de Janeiro| )
+        ( |Salvador| )
+        ( |São Luís| )
+        ( |São Paulo| )
+        ( |Teresina| )
+        ( |Vitória| )
     ).
 
-    _states_abbr = value #(
-        ( |AL| ) ( |AK| ) ( |AS| ) ( |AZ| ) ( |AR| ) ( |CA| ) ( |CO| ) ( |CT| ) ( |DE| ) ( |DC| ) ( |FM| ) ( |FL| )
-        ( |GA| ) ( |GU| ) ( |HI| ) ( |ID| ) ( |IL| ) ( |IN| ) ( |IA| ) ( |KS| ) ( |KY| ) ( |LA| ) ( |ME| ) ( |MH| )
-        ( |MD| ) ( |MA| ) ( |MI| ) ( |MN| ) ( |MS| ) ( |MO| ) ( |MT| ) ( |NE| ) ( |NV| ) ( |NH| ) ( |NJ| ) ( |NM| )
-        ( |NY| ) ( |NC| ) ( |ND| ) ( |MP| ) ( |OH| ) ( |OK| ) ( |OR| ) ( |PW| ) ( |PA| ) ( |PR| ) ( |RI| ) ( |SC| )
-        ( |SD| ) ( |TN| ) ( |TX| ) ( |UT| ) ( |VT| ) ( |VI| ) ( |VA| ) ( |WA| ) ( |WV| ) ( |WI| ) ( |WY| )
+    _states_abbr = VALUE #(
+        ( |AC| ) ( |AL| ) ( |AP| )
+        ( |AM| ) ( |BA| ) ( |CE| )
+        ( |DF| ) ( |ES| ) ( |GO| )
+        ( |MA| ) ( |MT| ) ( |MS| )
+        ( |MG| ) ( |PA| ) ( |PB| )
+        ( |PR| ) ( |PE| ) ( |PI| )
+        ( |RJ| ) ( |RN| ) ( |RS| )
+        ( |RO| ) ( |RR| ) ( |SC| )
+        ( |SP| ) ( |SE| ) ( |TO| )
     ).
+
     _city_address_formats = VALUE #(
-        ( `{{address-city}}, {{address-state_abbr}} {{address-postcode}}` )
+        ( `{{address-city}} - {{address-state_abbr}} {{address-postcode}}` )
     ).
 
   ENDMETHOD.
