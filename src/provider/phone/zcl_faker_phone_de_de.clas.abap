@@ -43,6 +43,8 @@ CLASS zcl_faker_phone_de_de IMPLEMENTATION.
 
     super->constructor( i_faker ).
 
+    _phone = |Telefon|.
+
     _formats = VALUE #(
         ( |{ _phone } +49(0)##########| )
         ( |{ _phone } +49(0)#### ######| )
