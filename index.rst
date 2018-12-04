@@ -17,8 +17,8 @@ Providers
 ---------
 Each of the generator properties (like name, address, and lorem) are called "fake". A faker generator has many of them, packaged in "providers".
 
-.. code:: abap
+`
 DATA(faker) = NEW zcl_faker( ).
 cl_demo_output=>display( |{ faker->person->first_name( ) } { faker->person->last_name( ) }| ).
-```
+`
 
