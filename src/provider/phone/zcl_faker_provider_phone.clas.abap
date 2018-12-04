@@ -35,6 +35,7 @@ CLASS zcl_faker_provider_phone DEFINITION
 
   PROTECTED SECTION.
     DATA _formats TYPE string_table.
+    DATA _phone TYPE string VALUE 'Phone'.
 
   PRIVATE SECTION.
 ENDCLASS.
