@@ -6,6 +6,8 @@
 Welcome to abapFaker's documentation!
 =====================================
 
+.. include:: ../README.md
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
