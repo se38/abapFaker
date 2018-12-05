@@ -71,5 +71,5 @@ abapFaker is released under the MIT License. See the bundled `LICENSE`_ file for
 	:target: https://abapfaker.readthedocs.io/en/latest/?badge=latest
 	:alt: Documentation Status
 .. |license| image:: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
-    :target: https://raw.githubusercontent.com/joke2k/faker/master/LICENSE.txt
+    :target: https://raw.githubusercontent.com/se38/abapfaker/master/LICENSE.txt
     :alt: Package license
