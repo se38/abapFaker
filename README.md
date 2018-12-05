@@ -4,10 +4,11 @@ Design inspired by https://github.com/joke2k/faker.
 
 ----
 
-::
-
     _|_|_|_|          _|
     _|        _|_|_|  _|  _|      _|_|    _|  _|_|
     _|_|_|  _|    _|  _|_|      _|_|_|_|  _|_|
     _|      _|    _|  _|  _|    _|        _|
     _|        _|_|_|  _|    _|    _|_|_|  _|
+
+	
+For more details, see the `extended docs`_.
