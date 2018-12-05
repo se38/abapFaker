@@ -4,6 +4,8 @@ Design inspired by https://github.com/joke2k/faker.
 
 ----
 
+::
+
     _|_|_|_|          _|
     _|        _|_|_|  _|  _|      _|_|    _|  _|_|
     _|_|_|  _|    _|  _|_|      _|_|_|_|  _|_|
@@ -11,26 +13,29 @@ Design inspired by https://github.com/joke2k/faker.
     _|        _|_|_|  _|    _|    _|_|_|  _|
 
 	
-For more details, see the [`extended docs`](https://abapfaker.readthedocs.io/en/latest/).
+For more details, see the `extended docs`_.
 
 Installation
 -----------
-This project is supported by [`ABAPGit Project`](https://github.com/larshp/abapGit). Download ZIP file or integrate this project to him. 
+This project is supported by `ABAPGit Project`_. Download ZIP file or integrate this project to him. 
 
 Basic Usage
 -----------
-See also demo report [`Z_ABAP_FAKER_DEMO`](https://raw.githubusercontent.com/se38/abapFaker/master/src/z_abap_faker_demo.prog.abap).
+See also demo report `Z_ABAP_FAKER_DEMO`_.
 
 Providers
 -----------
 Each of the generator properties (like name, address...) are called "fake". A faker generator has many of them, packaged in "providers".
 
-```
+----
+
+::
+
+
 DATA(faker) = NEW zcl_faker( ).
 cl_demo_output=>display( |{ faker->person->first_name( ) } { faker->person->last_name( ) }| ).
-```
 
-Check the [`extended docs`](https://abapfaker.readthedocs.io/en/latest/) for a list of [`providers.`](https://abapfaker.readthedocs.io/en/latest/)
+Check the `extended docs`_ for a list of `providers`_.
 
 Localization
 -----------
@@ -57,3 +62,8 @@ Included localized providers:
 License
 -----------
 abapFaker is released under the MIT License. See the bundled [`LICENSE`](https://github.com/se38/abapFaker/blob/master/LICENSE) file for details.
+
+.. _extended docs: https://abapfaker.readthedocs.io/en/latest/
+.. _ABAPGit Project: https://github.com/larshp/abapGit
+.. _Z_ABAP_FAKER_DEMO: https://raw.githubusercontent.com/se38/abapFaker/master/src/z_abap_faker_demo.prog.abap
+.. _providers: https://abapfaker.readthedocs.io/en/latest/
