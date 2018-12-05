@@ -12,7 +12,8 @@ Design inspired by https://github.com/joke2k/faker.
     _|      _|    _|  _|  _|    _|        _|
     _|        _|_|_|  _|    _|    _|_|_|  _|
 
-	
+|docs| |license|
+
 For more details, see the `extended docs`_.
 
 Installation
@@ -65,3 +66,10 @@ abapFaker is released under the MIT License. See the bundled `LICENSE`_ file for
 .. _Z_ABAP_FAKER_DEMO: https://raw.githubusercontent.com/se38/abapFaker/master/src/z_abap_faker_demo.prog.abap
 .. _providers: https://abapfaker.readthedocs.io/en/latest/
 .. _LICENSE: https://github.com/se38/abapFaker/blob/master/LICENSE
+
+.. |docs| image:: https://readthedocs.org/projects/abapfaker/badge/?version=latest
+	:target: https://abapfaker.readthedocs.io/en/latest/?badge=latest
+	:alt: Documentation Status
+.. |license| image:: https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square
+    :target: https://raw.githubusercontent.com/joke2k/faker/master/LICENSE.txt
+    :alt: Package license
