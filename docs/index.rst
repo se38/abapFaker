@@ -8,11 +8,15 @@ Welcome to abapFaker's documentation!
 
 .. include:: ../README.rst
 
+Contents
+--------
+
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-
+   providers
+   locales
 
 Indices and tables
 ==================
