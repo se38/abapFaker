@@ -30,14 +30,22 @@ CLASS zcl_faker_provider_phone DEFINITION
   ABSTRACT .
 
   PUBLIC SECTION.
+    METHODS constructor
+      IMPORTING i_faker TYPE REF TO zcl_faker.
     METHODS number
+      RETURNING VALUE(r_result) TYPE string.
+    METHODS label
       RETURNING VALUE(r_result) TYPE string.
 
   PROTECTED SECTION.
     DATA _formats TYPE string_table.
-    DATA _phone TYPE string VALUE 'Phone'.
+    DATA _label TYPE string.
 
   PRIVATE SECTION.
+    METHODS get_label
+      RETURNING
+        value(r_result) TYPE string.
+
 ENDCLASS.
 
 
@@ -46,6 +54,32 @@ CLASS zcl_faker_provider_phone IMPLEMENTATION.
 
   METHOD number.
     r_result = numerify( _formats[ random( lines( _formats ) ) ] ).
+  ENDMETHOD.
+
+  METHOD label.
+    r_result = _label.
+  ENDMETHOD.
+
+  METHOD constructor.
+
+    super->constructor( i_faker ).
+    _label = get_label( ).
+
+  ENDMETHOD.
+
+
+  METHOD get_label.
+
+    DATA(language) = _faker->get_language( ).
+
+    SELECT scrtext_s
+      INTO @r_result
+      UP TO 1 ROWS
+      FROM dd04t
+      WHERE rollname = 'AD_TLNMBR1'  ##no_text
+      AND   ddlanguage = @language.
+    ENDSELECT.
+
   ENDMETHOD.
 
 ENDCLASS.

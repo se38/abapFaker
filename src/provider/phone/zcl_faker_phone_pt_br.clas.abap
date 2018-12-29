@@ -33,7 +33,6 @@ CLASS zcl_faker_phone_pt_br DEFINITION
     METHODS constructor
       IMPORTING i_faker TYPE REF TO zcl_faker.
 
-  PRIVATE SECTION.
 ENDCLASS.
 
 
@@ -43,21 +42,21 @@ CLASS zcl_faker_phone_pt_br IMPLEMENTATION.
 
     super->constructor( i_faker ).
 
-    _phone = |Telefone|.
+    _label = COND #( WHEN _label IS INITIAL THEN |Telefone| ELSE _label ).   "shorttext not found in super constructor for this language
 
     _formats = VALUE #(
-        ( |{ _phone } +55(##)########| )
-        ( |{ _phone } +55(##)####-####| )
-        ( |{ _phone } 0##########| )
-        ( |{ _phone } 0######-####| )
-        ( |{ _phone } (##)########| )
-        ( |{ _phone } (##)####-####| )
-        ( |{ _phone } +55(##)#########| )
-        ( |{ _phone } +55(##)#####-####| )
-        ( |{ _phone } 0###########| )
-        ( |{ _phone } 0#######-####| )
-        ( |{ _phone } (##)#########| )
-        ( |{ _phone } (##)#####-####| )
+        ( |+55(##)########| )
+        ( |+55(##)####-####| )
+        ( |0##########| )
+        ( |0######-####| )
+        ( |(##)########| )
+        ( |(##)####-####| )
+        ( |+55(##)#########| )
+        ( |+55(##)#####-####| )
+        ( |0###########| )
+        ( |0#######-####| )
+        ( |(##)#########| )
+        ( |(##)#####-####| )
     ).
 
   ENDMETHOD.

@@ -41,13 +41,17 @@ NEW app( )->main( ).
 CLASS app IMPLEMENTATION.
 
   METHOD main.
+
+    DATA(locale) = COND string( WHEN p_langu IS INITIAL OR p_cntry IS INITIAL THEN space
+                                ELSE |{ to_lower( p_langu ) }_{ p_cntry }| ).
+
     cl_demo_output=>new( )->begin_section( |ABAP Faker|
-                         )->write( VALUE stringtab( LET faker = NEW zcl_faker( |{ to_lower( p_langu ) }_{ p_cntry }| )
+                         )->write( VALUE stringtab( LET faker = NEW zcl_faker( locale )
                                                     IN FOR i = 1 UNTIL i > 10
                                                     ( |{ faker->person->name( ) }\n| &&
                                                       |{ faker->address->street_address( ) }\n| &&
                                                       |{ faker->address->city_address( ) }\n\n| &&
-                                                      |{ faker->phone->number( ) }\n| &&
+                                                      |{ faker->phone->label( ) } { faker->phone->number( ) }\n| &&
                                                       |{ faker->company->company_name( ) }\n| &&
                                                       |{ faker->job->job_title( ) }\n| &&
                                                       |{ sy-uline }| ) )

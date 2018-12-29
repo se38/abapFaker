@@ -44,7 +44,7 @@ CLASS zcl_faker_phone_default IMPLEMENTATION.
     super->constructor( i_faker ).
 
     _formats = VALUE #(
-      ( |{ _phone } +1 555-%####| )
+      ( |+1 555-%####| )
     ).
 
   ENDMETHOD.

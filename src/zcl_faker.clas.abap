@@ -41,6 +41,8 @@ CLASS zcl_faker DEFINITION
 
     METHODS constructor
       IMPORTING i_locale TYPE string OPTIONAL.
+    METHODS get_language
+      RETURNING VALUE(r_result) TYPE syst_langu.
 
   PRIVATE SECTION.
     DATA _locale TYPE string.
@@ -113,6 +115,18 @@ CLASS zcl_faker IMPLEMENTATION.
     ENDIF.
 
     r_result = |{ language CASE = LOWER }_{ user_address-country }|.
+  ENDMETHOD.
+
+  METHOD get_language.
+
+    CALL FUNCTION 'CONVERSION_EXIT_ISOLA_INPUT'
+      EXPORTING
+        input            = CONV char2( _locale )
+      IMPORTING
+        output           = r_result
+      EXCEPTIONS
+        OTHERS           = 0.
+
   ENDMETHOD.
 
 ENDCLASS.

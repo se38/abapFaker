@@ -33,7 +33,6 @@ CLASS zcl_faker_phone_de_de DEFINITION
     METHODS constructor
       IMPORTING i_faker TYPE REF TO zcl_faker.
 
-  PRIVATE SECTION.
 ENDCLASS.
 
 
@@ -43,20 +42,20 @@ CLASS zcl_faker_phone_de_de IMPLEMENTATION.
 
     super->constructor( i_faker ).
 
-    _phone = |Telefon|.
+    _label = COND #( WHEN _label IS INITIAL THEN |Telefon| ELSE _label ).   "shorttext not found in super constructor for this language
 
     _formats = VALUE #(
-        ( |{ _phone } +49(0)##########| )
-        ( |{ _phone } +49(0)#### ######| )
-        ( |{ _phone } +49 (0) #### ######| )
-        ( |{ _phone } +49(0) #########| )
-        ( |{ _phone } +49(0)#### #####| )
-        ( |{ _phone } 0##########| )
-        ( |{ _phone } 0#########| )
-        ( |{ _phone } 0#### ######| )
-        ( |{ _phone } 0#### #####| )
-        ( |{ _phone } (0####) ######| )
-        ( |{ _phone } (0####) #####| )
+        ( |+49(0)##########| )
+        ( |+49(0)#### ######| )
+        ( |+49 (0) #### ######| )
+        ( |+49(0) #########| )
+        ( |+49(0)#### #####| )
+        ( |0##########| )
+        ( |0#########| )
+        ( |0#### ######| )
+        ( |0#### #####| )
+        ( |(0####) ######| )
+        ( |(0####) #####| )
     ).
 
   ENDMETHOD.
