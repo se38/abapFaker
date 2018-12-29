@@ -43,6 +43,8 @@ CLASS zcl_faker_phone_default IMPLEMENTATION.
 
     super->constructor( i_faker ).
 
+    _label = COND #( WHEN _label IS INITIAL THEN |Phone| ELSE _label ).   "shorttext not found in super constructor for this language
+
     _formats = VALUE #(
       ( |+1 555-%####| )
     ).
