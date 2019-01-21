@@ -38,6 +38,7 @@ CLASS zcl_faker DEFINITION
     DATA address TYPE REF TO zcl_faker_provider_address.
     DATA company TYPE REF TO zcl_faker_provider_company.
     DATA job TYPE REF TO zcl_faker_provider_job.
+    DATA date TYPE REF TO zcl_faker_provider_date.
 
     METHODS constructor
       IMPORTING i_locale TYPE string OPTIONAL.
@@ -88,6 +89,12 @@ CLASS zcl_faker IMPLEMENTATION.
 
     job ?= zcl_faker_generator=>create(
                  i_type   = 'JOB'
+                 i_locale = _locale
+                 i_faker  = me
+               ).
+
+    date ?= zcl_faker_generator=>create(
+                 i_type   = 'DATE'
                  i_locale = _locale
                  i_faker  = me
                ).

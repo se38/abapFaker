@@ -54,6 +54,7 @@ CLASS app IMPLEMENTATION.
                                                       |{ faker->phone->label( ) } { faker->phone->number( ) }\n| &&
                                                       |{ faker->company->company_name( ) }\n| &&
                                                       |{ faker->job->job_title( ) }\n| &&
+                                                      |{ faker->date->date_of_birth_adult( ) }\n| &&
                                                       |{ sy-uline }| ) )
                          )->display( ).
   ENDMETHOD.
