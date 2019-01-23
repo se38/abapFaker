@@ -30,6 +30,9 @@ CLASS zcl_faker_provider_date DEFINITION
 
   PUBLIC SECTION.
     METHODS date
+      IMPORTING i_min_years     TYPE i OPTIONAL
+                i_max_years     TYPE i DEFAULT 500
+                i_future        TYPE boolean OPTIONAL
       RETURNING VALUE(r_result) TYPE string.
     METHODS today
       RETURNING VALUE(r_result) TYPE string.
@@ -62,7 +65,12 @@ ENDCLASS.
 CLASS zcl_faker_provider_date IMPLEMENTATION.
 
   METHOD date.
-    r_result = format( get_date( ) ).
+    r_result = format( get_date(
+                         i_min_years = i_min_years
+                         i_max_years = i_max_years
+                         i_future    = i_future )
+                     ).
+
   ENDMETHOD.
 
   METHOD date_of_birth.
