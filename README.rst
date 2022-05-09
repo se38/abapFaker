@@ -53,9 +53,9 @@ You can check available abapFaker locales in the source code, under the provider
 
 Included localized providers:
 
--  `de\_DE <https://abapfaker.readthedocs.io/en/latest/locales/de_DE.html>`__ - German
--  `en\_US <https://abapfaker.readthedocs.io/en/latest/locales/en_US.html>`__ - English (United States)
--  `pt\_BR <https://abapfaker.readthedocs.io/en/latest/locales/t_BR.html>`__ - Portuguese (Brazil)
+-  `de\_DE <https://abapfaker.readthedocs.io/en/latest/locales/de_DE/index.html>`__ - German
+-  `en\_US <https://abapfaker.readthedocs.io/en/latest/locales/en_US/index.html>`__ - English (United States)
+-  `pt\_BR <https://abapfaker.readthedocs.io/en/latest/locales/pt_BR/index.html>`__ - Portuguese (Brazil)
 
 License
 -----------
